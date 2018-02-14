@@ -6,26 +6,16 @@ import time
 import csv
 import re
 
-# Windows users need to specify the path to chrome driver you just downloaded.
-# You need to unzip the zipfile first and move the .exe file to any folder you want.
-# driver = webdriver.Chrome(r'path\to\the\chromedriver.exe')
+# this selenium script was used to scrape the styles of Air Jordans released each year
 driver = webdriver.Chrome()
-# Go to the page that we want to scrape
+
 driver.get("https://www.kicksonfire.com/air-jordan-release-dates/")
 
 csv_file = open('year.csv', 'w')
 writer = csv.writer(csv_file)
 
 
-# while True:
-# 	try:
-# 		time.sleep(3)
-# 		wait_button = WebDriverWait(driver, 10)
-# 		current_button = wait_button.until(EC.element_to_be_clickable((By.XPATH,
-# 									'//button[@class="btn btn-default"]')))
-# 		current_button.click()
-# 	except Exception as e:
-# 		break
+
 time.sleep(5)
 elements = driver.find_elements_by_xpath('//ul[@class = "sub-pages-continer"]//li/a')
 links = []
